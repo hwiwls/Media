@@ -92,7 +92,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let item = imageList[collectionView.tag].results[indexPath.item]
         let url = URL(string: "https://image.tmdb.org/t/p/w500\(item.poster_path)")
         cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))
-        cell.titleLabel.text = "임시 제목"
+        cell.titleLabel.text = imageList[collectionView.tag].results[indexPath.item].name
         
         return cell
     }

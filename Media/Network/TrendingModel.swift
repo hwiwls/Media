@@ -15,4 +15,5 @@ struct TrendingModel: Decodable {
 // MARK: - Result
 struct Result: Decodable {
     let poster_path: String
+    let name: String
 }
