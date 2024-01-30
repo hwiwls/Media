@@ -19,7 +19,7 @@ class WhiteTextLabel: UILabel {
     }
     
     func configureView() {
-        font = .boldSystemFont(ofSize: 15)
+        font = .boldSystemFont(ofSize: 18)
         textColor = .white
         textAlignment = .left
         numberOfLines = 2

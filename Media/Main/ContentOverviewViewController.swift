@@ -58,7 +58,7 @@ class ContentOverviewViewController: UIViewController {
     func configView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 240
+        tableView.rowHeight = 260
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         tableView.register(ContentOverviewTableViewCell.self, forCellReuseIdentifier: "ContentOverviewTableViewCell")
@@ -72,6 +72,8 @@ extension ContentOverviewViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentOverviewTableViewCell", for: indexPath) as! ContentOverviewTableViewCell
+        
+        cell.selectionStyle = .none
         
         cell.trendingCollectionView.delegate = self
         cell.trendingCollectionView.dataSource = self

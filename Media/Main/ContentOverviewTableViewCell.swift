@@ -15,7 +15,6 @@ class ContentOverviewTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .red
         
         configHierarchy()
         configLayout()
@@ -35,13 +34,13 @@ class ContentOverviewTableViewCell: UITableViewCell {
     
     func configLayout() {
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
+            $0.top.equalToSuperview().offset(24)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(22)
         }
         
         trendingCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
