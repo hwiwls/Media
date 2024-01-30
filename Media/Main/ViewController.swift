@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         configHierarchy()
         configLayout()
         configView()
+        
+        TMDBAPIManager.shared.fetchTrendingMovie()
     }
     
     func configHierarchy() {
