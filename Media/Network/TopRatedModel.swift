@@ -1,5 +1,5 @@
 //
-//  TrendingModel.swift
+//  TopRatedModel.swift
 //  Media
 //
 //  Created by hwijinjeong on 1/30/24.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - Trending
-struct TrendingModel: Decodable {
-    let results: [Trend]
+// MARK: - TopRated
+struct TopRatedModel: Decodable {
+    let results: [TopRated]
 }
 
 // MARK: - Result
-struct Trend: Decodable {
+struct TopRated: Decodable {
     let poster_path: String
     let name: String
 }

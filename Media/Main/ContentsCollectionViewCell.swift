@@ -1,5 +1,5 @@
 //
-//  TrendingCollectionViewCell.swift
+//  ContentsCollectionViewCell.swift
 //  Media
 //
 //  Created by hwijinjeong on 1/30/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrendingCollectionViewCell: UICollectionViewCell {
+class ContentsCollectionViewCell: UICollectionViewCell {
     let posterImageView = PosterImageView(frame: .zero)
     let titleLabel = WhiteTextLabel()
     

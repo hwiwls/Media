@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
+class ContentOverviewTableViewCell: UITableViewCell {
     
     let titleLabel = WhiteTextLabel()
     
