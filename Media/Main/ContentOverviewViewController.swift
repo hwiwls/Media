@@ -134,6 +134,7 @@ extension ContentOverviewViewController: UICollectionViewDelegate, UICollectionV
 
         let detailVC = DetailViewController()
         detailVC.movieId = id
+        detailVC.movieImg = cell.posterImageView.image 
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
