@@ -27,18 +27,34 @@ class ContentOverviewViewController: UIViewController {
         configLayout()
         configView()
         
-        TMDBAPIManager.shared.fetchTrendingMovie { results in
-            self.imageList = results
-            self.tableView.reloadData()
+        
+        let group = DispatchGroup()
+        
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            TMDBAPIManager.shared.fetchTrendingMovie { results in
+                self.imageList = results
+                group.leave()
+            }
         }
         
-        TMDBAPIManager.shared.fetchTopRatedMovie { results in
-            self.imageList2 = results
-            self.tableView.reloadData()
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            TMDBAPIManager.shared.fetchTopRatedMovie { results in
+                self.imageList2 = results
+                group.leave()
+            }
         }
         
-        TMDBAPIManager.shared.fetchPopularMovie { results in
-            self.imageList3 = results
+        group.enter()
+        DispatchQueue.global().async(group: group) {
+            TMDBAPIManager.shared.fetchPopularMovie { results in
+                self.imageList3 = results
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
             self.tableView.reloadData()
         }
     }
