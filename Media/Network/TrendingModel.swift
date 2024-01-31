@@ -9,11 +9,12 @@ import Foundation
 
 // MARK: - Trending
 struct TrendingModel: Decodable {
-    let results: [Trend]
+    let results: [Movie]
 }
 
 // MARK: - Result
-struct Trend: Decodable {
+struct Movie: Decodable {
+    let id: Int
     let poster_path: String
     let name: String
 }

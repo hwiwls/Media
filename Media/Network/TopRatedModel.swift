@@ -14,6 +14,7 @@ struct TopRatedModel: Decodable {
 
 // MARK: - Result
 struct TopRated: Decodable {
+    let id: Int
     let poster_path: String
     let name: String
 }

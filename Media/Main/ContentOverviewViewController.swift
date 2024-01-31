@@ -106,11 +106,13 @@ extension ContentOverviewViewController: UICollectionViewDelegate, UICollectionV
             let url = URL(string: "https://image.tmdb.org/t/p/w500\(item.poster_path)")
             cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))
             cell.titleLabel.text = imageList.results[indexPath.item].name
+            cell.tag = item.id
         } else if collectionView.tag == 1 {
             let item = imageList2.results[indexPath.item]
             let url = URL(string: "https://image.tmdb.org/t/p/w500\(item.poster_path)")
             cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))
             cell.titleLabel.text = imageList2.results[indexPath.item].name
+            cell.tag = item.id
         } else {
             let item = imageList3.results[indexPath.item]
             guard let posterPath = item.poster_path else {
@@ -120,7 +122,18 @@ extension ContentOverviewViewController: UICollectionViewDelegate, UICollectionV
             let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
             cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))
             cell.titleLabel.text = item.name
+            cell.tag = item.id
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! ContentsCollectionViewCell
+        let id = cell.tag
+
+        let detailVC = DetailViewController()
+        detailVC.movieId = id
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

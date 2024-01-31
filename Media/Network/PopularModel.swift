@@ -14,6 +14,7 @@ struct PopularModel: Decodable {
 
 // MARK: - Result
 struct Popular: Decodable {
+    let id: Int
     let poster_path: String?
     let name: String
 }
