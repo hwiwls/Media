@@ -52,7 +52,7 @@ class TMDBAPIManager {
             case .success(let success):
                 completionHandler(success)
             case .failure(let failure):
-                print(failure.localizedDescription)
+                print(failure)
             }
         }
     }
@@ -67,25 +67,39 @@ class TMDBAPIManager {
             case .success(let success):
                 completionHandler(success)
             case .failure(let failure):
-                print(failure.localizedDescription)
+                print(failure)
             }
         }
     }
     
-    func fetchSeriesDetail2(id: Int) {
-        let url = "https://api.themoviedb.org/3/tv/\(id)?language=ko-KR"
+    
+    func fetchSeriesCast(id: Int, completionHandler: @escaping (CastModel) -> Void) {
+        let url = "https://api.themoviedb.org/3/tv/\(id)/aggregate_credits"
         
         let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
         
-        AF.request(url, headers: header).responseDecodable(of: DetailModel.self) { response in
+        AF.request(url, headers: header).responseDecodable(of: CastModel.self) { response in
             switch response.result {
             case .success(let success):
-                dump(success)
+                completionHandler(success)
             case .failure(let failure):
-                print(failure.localizedDescription)
+                print(failure)
             }
         }
     }
     
-    
+    func fetchRecommendedSeries(id: Int, completionHandler: @escaping (RecommendModel) -> Void) {
+        let url = "https://api.themoviedb.org/3/tv/\(id)/recommendations?language=ko-KR"
+        
+        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
+        
+        AF.request(url, headers: header).responseDecodable(of: RecommendModel.self) { response in
+            switch response.result {
+            case .success(let success):
+                completionHandler(success)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+    }
 }

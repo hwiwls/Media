@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - CastModel
-struct CastModel: Codable {
+struct CastModel: Decodable {
     let cast, crew: [Cast]
     let id: Int
 }
 
 // MARK: - Cast
-struct Cast: Codable {
+struct Cast: Decodable {
     let name: String
     let department: Department?
 }
@@ -24,4 +24,13 @@ enum Department: String, Codable {
     case creator = "Creator"
     case directing = "Directing"
     case writing = "Writing"
+    case art = "Art"
+    case camera = "Camera"
+    case costume = "Costume & Make-Up"
+    case crew = "Crew"
+    case editing = "Editing"
+    case production = "Production"
+    case sound = "Sound"
+    case effects = "Effects"
+    case visulaEffects = "Visual Effects"
 }
