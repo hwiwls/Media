@@ -10,7 +10,7 @@ import SnapKit
 import Then
 import Kingfisher
 
-class DetailViewController: UIViewController {
+class DetailViewController: BaseViewController {
     
     var movieId = 0
     
@@ -123,7 +123,7 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func configHierarchy() {
+    override func configHierarchy() {
         view.addSubviews([
             imageView,
             seriesNameLabel,
@@ -135,7 +135,7 @@ class DetailViewController: UIViewController {
         ])
     }
     
-    func configLayout() {
+    override func configLayout() {
         imageView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(view.snp.width).multipliedBy(0.5)

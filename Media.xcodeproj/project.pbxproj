@@ -31,6 +31,8 @@
 		2E9A64AB2B6A4FC00049A2B2 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A64AA2B6A4FC00049A2B2 /* DetailTableViewCell.swift */; };
 		2E9A64AD2B6A55910049A2B2 /* CastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A64AC2B6A55910049A2B2 /* CastModel.swift */; };
 		2EBAFAE12B6F6E63003032B9 /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAFAE02B6F6E63003032B9 /* TMDBAPI.swift */; };
+		2EBAFAE42B6F8755003032B9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAFAE32B6F8755003032B9 /* BaseViewController.swift */; };
+		2EBAFAE62B6F8761003032B9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAFAE52B6F8761003032B9 /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		2E9A64AA2B6A4FC00049A2B2 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		2E9A64AC2B6A55910049A2B2 /* CastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastModel.swift; sourceTree = "<group>"; };
 		2EBAFAE02B6F6E63003032B9 /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
+		2EBAFAE32B6F8755003032B9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2EBAFAE52B6F8761003032B9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 				2E279DF72B68DBFB0086F827 /* AppDelegate.swift */,
 				2E279DF92B68DBFB0086F827 /* SceneDelegate.swift */,
 				2E279E0B2B68DCA10086F827 /* Network */,
+				2EBAFAE22B6F8743003032B9 /* Base */,
 				2E9A64A72B6A4B350049A2B2 /* Detail */,
 				2E279E0C2B68DCA70086F827 /* Main */,
 				2E279E282B68E5430086F827 /* CustomView */,
@@ -155,6 +160,15 @@
 				2E9A64AA2B6A4FC00049A2B2 /* DetailTableViewCell.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		2EBAFAE22B6F8743003032B9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2EBAFAE32B6F8755003032B9 /* BaseViewController.swift */,
+				2EBAFAE52B6F8761003032B9 /* BaseView.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +259,7 @@
 				2E9A64A62B6A44ED0049A2B2 /* DetailModel.swift in Sources */,
 				2E279E272B68E1E70086F827 /* TVSeriesModel.swift in Sources */,
 				2E3E5A752B6BF0E00000E651 /* RecommendModel.swift in Sources */,
+				2EBAFAE42B6F8755003032B9 /* BaseViewController.swift in Sources */,
 				2E279E212B68E1440086F827 /* TMDBAPIManager.swift in Sources */,
 				2E279E2A2B68E5550086F827 /* WhiteTextLabel.swift in Sources */,
 				2EBAFAE12B6F6E63003032B9 /* TMDBAPI.swift in Sources */,
@@ -255,6 +270,7 @@
 				2E279E2F2B68E72E0086F827 /* PosterImageView.swift in Sources */,
 				2E9A64AD2B6A55910049A2B2 /* CastModel.swift in Sources */,
 				2E9A64A92B6A4B710049A2B2 /* DetailViewController.swift in Sources */,
+				2EBAFAE62B6F8761003032B9 /* BaseView.swift in Sources */,
 				2E279E1C2B68DE130086F827 /* ContentOverviewTableViewCell.swift in Sources */,
 				2E279DFA2B68DBFB0086F827 /* SceneDelegate.swift in Sources */,
 			);

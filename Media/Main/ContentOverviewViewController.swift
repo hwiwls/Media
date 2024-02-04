@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class ContentOverviewViewController: UIViewController {
+class ContentOverviewViewController: BaseViewController {
     
     let tableView = UITableView()
     
@@ -59,19 +59,19 @@ class ContentOverviewViewController: UIViewController {
         }
     }
     
-    func configHierarchy() {
+    override func configHierarchy() {
         view.addSubviews([
             tableView
         ])
     }
     
-    func configLayout() {
+    override func configLayout() {
         tableView.snp.makeConstraints {
             $0.top.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
-    func configView() {
+    override func configView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 260
