@@ -13,7 +13,7 @@ struct RecommendModel: Decodable {
 
 // MARK: - Result
 struct TVSeries: Decodable {
-    let adult: Bool
+
     let backdrop_path: String?
     let id: Int
     let name: String
@@ -21,11 +21,4 @@ struct TVSeries: Decodable {
     let original_name: String
     let overview: String
     let poster_path: String
-    let media_type: String
-    let genre_ids: [Int]
-    let popularity: Double
-    let first_air_date: String
-    let vote_average: Double
-    let vote_count: Int
-    let origin_country: [String]
 }

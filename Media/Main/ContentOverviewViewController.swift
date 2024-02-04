@@ -15,9 +15,9 @@ class ContentOverviewViewController: UIViewController {
     
     let tableViewTitle = ["주간 트렌드", "조회수 높은", "인기있는"]
     
-    var imageList: TrendingModel = TrendingModel(results: [])
-    var imageList2: TopRatedModel = TopRatedModel(results: [])
-    var imageList3: PopularModel = PopularModel(results: [])
+    var imageList: TVSeriesModel = TVSeriesModel(results: [])
+    var imageList2: TVSeriesModel = TVSeriesModel(results: [])
+    var imageList3: TVSeriesModel = TVSeriesModel(results: [])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class ContentOverviewViewController: UIViewController {
         
         group.enter()
         DispatchQueue.global().async(group: group) {
-            TMDBAPIManager.shared.fetchTrendingMovie { results in
+            TMDBAPIManager.shared.fetchTVSeries(api: .trend) { results in
                 self.imageList = results
                 group.leave()
             }
@@ -40,7 +40,7 @@ class ContentOverviewViewController: UIViewController {
         
         group.enter()
         DispatchQueue.global().async(group: group) {
-            TMDBAPIManager.shared.fetchTopRatedMovie { results in
+            TMDBAPIManager.shared.fetchTVSeries(api: .topRated) { results in
                 self.imageList2 = results
                 group.leave()
             }
@@ -48,7 +48,7 @@ class ContentOverviewViewController: UIViewController {
         
         group.enter()
         DispatchQueue.global().async(group: group) {
-            TMDBAPIManager.shared.fetchPopularMovie { results in
+            TMDBAPIManager.shared.fetchTVSeries(api: .popular) { results in
                 self.imageList3 = results
                 group.leave()
             }
@@ -131,11 +131,13 @@ extension ContentOverviewViewController: UICollectionViewDelegate, UICollectionV
             cell.tag = item.id
         } else {
             let item = imageList3.results[indexPath.item]
-            guard let posterPath = item.poster_path else {
-                cell.posterImageView.image = UIImage(systemName: "star.fill")
-                return cell
-            }
-            let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+//            guard let posterPath = item.poster_path else {
+//                cell.posterImageView.image = UIImage(systemName: "star.fill")
+//                return cell
+//            }
+//            let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+            let url = URL(string: "https://image.tmdb.org/t/p/w500\(item.poster_path)")
+            cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))
             cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))
             cell.titleLabel.text = item.name
             cell.tag = item.id

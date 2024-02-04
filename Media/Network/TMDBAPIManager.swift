@@ -11,43 +11,13 @@ import Alamofire
 class TMDBAPIManager {
     static let shared = TMDBAPIManager()
     
-    func fetchTrendingMovie(completionHandler: @escaping (TrendingModel) -> Void) {
-        let url = "https://api.themoviedb.org/3/trending/tv/week?language=ko-KR"
-        
-        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
-        
-        AF.request(url, headers: header).responseDecodable(of: TrendingModel.self) { response in
-            switch response.result {
-            case .success(let success):
-                completionHandler(success)
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-        }
-    }
-    
-    func fetchTopRatedMovie(completionHandler: @escaping (TopRatedModel) -> Void) {
-        let url = "https://api.themoviedb.org/3/tv/top_rated?language=ko-KR"
-        
-        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
-        
-        AF.request(url, headers: header).responseDecodable(of: TopRatedModel.self) { response in
-            switch response.result {
-            case .success(let success):
-                completionHandler(success)
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-        }
-    }
-    
-    func fetchPopularMovie(completionHandler: @escaping (PopularModel) -> Void) {
-        // 한국어 지원 안 함
-        let url = "https://api.themoviedb.org/3/tv/popular"
-        
-        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
-        
-        AF.request(url, headers: header).responseDecodable(of: PopularModel.self) { response in
+    func fetchTVSeries(api: TMDBAPI, completionHandler: @escaping (TVSeriesModel) -> Void) {
+        AF.request(
+            api.endpoint,
+            method: api.method,
+            parameters: api.parameter,
+            headers: api.header
+        ).responseDecodable(of: TVSeriesModel.self) { response in
             switch response.result {
             case .success(let success):
                 completionHandler(success)
@@ -57,12 +27,13 @@ class TMDBAPIManager {
         }
     }
     
-    func fetchSeriesDetail(id: Int, completionHandler: @escaping (DetailModel) -> Void) {
-        let url = "https://api.themoviedb.org/3/tv/\(id)?language=ko-KR"
-        
-        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
-        
-        AF.request(url, headers: header).responseDecodable(of: DetailModel.self) { response in
+    func fetchSeriesDetail(api: TMDBAPI, completionHandler: @escaping (DetailModel) -> Void) {
+        AF.request(
+            api.endpoint,
+            method: api.method,
+            parameters: api.parameter,
+            headers: api.header
+        ).responseDecodable(of: DetailModel.self) { response in
             switch response.result {
             case .success(let success):
                 completionHandler(success)
@@ -72,13 +43,13 @@ class TMDBAPIManager {
         }
     }
     
-    
-    func fetchSeriesCast(id: Int, completionHandler: @escaping (CastModel) -> Void) {
-        let url = "https://api.themoviedb.org/3/tv/\(id)/aggregate_credits"
-        
-        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
-        
-        AF.request(url, headers: header).responseDecodable(of: CastModel.self) { response in
+    func fetchSeriesCast(api: TMDBAPI, completionHandler: @escaping (CastModel) -> Void) {
+        AF.request(
+            api.endpoint,
+            method: api.method,
+            parameters: api.parameter,
+            headers: api.header
+        ).responseDecodable(of: CastModel.self) { response in
             switch response.result {
             case .success(let success):
                 completionHandler(success)
@@ -87,13 +58,14 @@ class TMDBAPIManager {
             }
         }
     }
-    
-    func fetchRecommendedSeries(id: Int, completionHandler: @escaping (RecommendModel) -> Void) {
-        let url = "https://api.themoviedb.org/3/tv/\(id)/recommendations?language=ko-KR"
-        
-        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
-        
-        AF.request(url, headers: header).responseDecodable(of: RecommendModel.self) { response in
+
+    func fetchRecommendedSeries(api: TMDBAPI, completionHandler: @escaping (RecommendModel) -> Void) {
+        AF.request(
+            api.endpoint,
+            method: api.method,
+            parameters: api.parameter,
+            headers: api.header
+        ).responseDecodable(of: RecommendModel.self) { response in
             switch response.result {
             case .success(let success):
                 completionHandler(success)

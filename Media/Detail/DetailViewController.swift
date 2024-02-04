@@ -78,7 +78,8 @@ class DetailViewController: UIViewController {
         let group = DispatchGroup()
 
         group.enter()
-        TMDBAPIManager.shared.fetchSeriesDetail(id: movieId) { result in
+        
+        TMDBAPIManager.shared.fetchSeriesDetail(api: .detail(id: movieId)) { result in
             let imagePath = "https://image.tmdb.org/t/p/w500\(result.backdropPath)"
             if let url = URL(string: imagePath) {
                 self.imageView.kf.setImage(with: url)
@@ -89,7 +90,7 @@ class DetailViewController: UIViewController {
         }
 
         group.enter()
-        TMDBAPIManager.shared.fetchSeriesCast(id: movieId) { result in
+        TMDBAPIManager.shared.fetchSeriesCast(api: .cast(id: movieId)) { result in
             var actingNames: [String] = []
             var creatorNames: [String] = []
 
@@ -112,8 +113,8 @@ class DetailViewController: UIViewController {
         }
 
         group.enter()
-        TMDBAPIManager.shared.fetchRecommendedSeries(id: movieId) { results in
-            self.imageList = results
+        TMDBAPIManager.shared.fetchRecommendedSeries(api: .recommend(id: movieId)) { result in
+            self.imageList = result
             group.leave()
         }
 
