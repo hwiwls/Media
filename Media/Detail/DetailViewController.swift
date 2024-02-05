@@ -77,16 +77,29 @@ class DetailViewController: BaseViewController {
         
         let group = DispatchGroup()
 
-        group.enter()
+//        group.enter()
+//        TMDBAPIManager.shared.fetchSeriesDetail(api: .detail(id: movieId)) { result in
+//            let imagePath = "https://image.tmdb.org/t/p/w500\(result.backdropPath)"
+//            if let url = URL(string: imagePath) {
+//                self.imageView.kf.setImage(with: url)
+//            }
+//            self.seriesNameLabel.text = result.name
+//            self.overviewLabel.text = result.overview
+//            group.leave()
+//        }
         
-        TMDBAPIManager.shared.fetchSeriesDetail(api: .detail(id: movieId)) { result in
-            let imagePath = "https://image.tmdb.org/t/p/w500\(result.backdropPath)"
-            if let url = URL(string: imagePath) {
-                self.imageView.kf.setImage(with: url)
+        TMDBSessionManager.shared.fetchSeriesDetailS(id: movieId) { detail, error in
+            if error == nil {
+                guard let detail = detail else { return }
+                let imagePath = "https://image.tmdb.org/t/p/w500\(detail.backdropPath)"
+                if let url = URL(string: imagePath) {
+                    self.imageView.kf.setImage(with: url)
+                    self.seriesNameLabel.text = detail.name
+                    self.overviewLabel.text = detail.overview
+                }
+            } else {
+                
             }
-            self.seriesNameLabel.text = result.name
-            self.overviewLabel.text = result.overview
-            group.leave()
         }
 
         group.enter()
