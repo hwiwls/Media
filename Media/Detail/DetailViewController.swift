@@ -75,8 +75,7 @@ class DetailViewController: BaseViewController {
         configLayout()
         configNav()
         
-        let group = DispatchGroup()
-
+//        let group = DispatchGroup()
 //        group.enter()
 //        TMDBAPIManager.shared.fetchSeriesDetail(api: .detail(id: movieId)) { result in
 //            let imagePath = "https://image.tmdb.org/t/p/w500\(result.backdropPath)"
@@ -102,38 +101,74 @@ class DetailViewController: BaseViewController {
             }
         }
 
-        group.enter()
-        TMDBAPIManager.shared.fetchSeriesCast(api: .cast(id: movieId)) { result in
-            var actingNames: [String] = []
-            var creatorNames: [String] = []
+//        group.enter()
+//        TMDBAPIManager.shared.fetchSeriesCast(api: .cast(id: movieId)) { result in
+//            var actingNames: [String] = []
+//            var creatorNames: [String] = []
+//
+//            result.cast.reduce(into: ()) { _, cast in
+//                actingNames.append(cast.name)
+//            }
+//
+//            result.crew.reduce(into: ()) { _, cast in
+//                switch cast.department {
+//                case .creator, .directing:
+//                    creatorNames.append(cast.name)
+//                default:
+//                    break
+//                }
+//            }
+//
+//            self.castNameLabel.text = actingNames.joined(separator: ", ")
+//            self.crewNameLabel.text = creatorNames.joined(separator: ", ")
+//            group.leave()
+//        }
+        
+        TMDBSessionManager.shared.fetchSeriesCastS(id: movieId) { casting, error in
+            if error == nil {
+                var actingNames: [String] = []
+                var creatorNames: [String] = []
 
-            result.cast.reduce(into: ()) { _, cast in
-                actingNames.append(cast.name)
-            }
-
-            result.crew.reduce(into: ()) { _, cast in
-                switch cast.department {
-                case .creator, .directing:
-                    creatorNames.append(cast.name)
-                default:
-                    break
+                casting?.cast.reduce(into: ()) { _, cast in
+                    actingNames.append(cast.name)
                 }
+
+                casting?.crew.reduce(into: ()) { _, cast in
+                    switch cast.department {
+                    case .creator, .directing:
+                        creatorNames.append(cast.name)
+                    default:
+                        break
+                    }
+                }
+
+                self.castNameLabel.text = actingNames.joined(separator: ", ")
+                self.crewNameLabel.text = creatorNames.joined(separator: ", ")
+            } else {
+                
             }
-
-            self.castNameLabel.text = actingNames.joined(separator: ", ")
-            self.crewNameLabel.text = creatorNames.joined(separator: ", ")
-            group.leave()
         }
+        
 
-        group.enter()
-        TMDBAPIManager.shared.fetchRecommendedSeries(api: .recommend(id: movieId)) { result in
-            self.imageList = result
-            group.leave()
+//        group.enter()
+//        TMDBAPIManager.shared.fetchRecommendedSeries(api: .recommend(id: movieId)) { result in
+//            self.imageList = result
+//            group.leave()
+//        }
+//
+//        group.notify(queue: .main) {
+//            self.tableView.reloadData()
+//        }
+        
+        TMDBSessionManager.shared.fetchRecommendedSeries2(id: movieId) { recommend, error in
+            if error == nil {
+                self.imageList = recommend!
+                self.tableView.reloadData()
+            } else {
+                
+            }
         }
-
-        group.notify(queue: .main) {
-            self.tableView.reloadData()
-        }
+        
     }
     
     override func configHierarchy() {
