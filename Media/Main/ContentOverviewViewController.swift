@@ -103,7 +103,6 @@ extension ContentOverviewViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
-
 extension ContentOverviewViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
@@ -131,11 +130,6 @@ extension ContentOverviewViewController: UICollectionViewDelegate, UICollectionV
             cell.tag = item.id
         } else {
             let item = imageList3.results[indexPath.item]
-//            guard let posterPath = item.poster_path else {
-//                cell.posterImageView.image = UIImage(systemName: "star.fill")
-//                return cell
-//            }
-//            let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
             let url = URL(string: "https://image.tmdb.org/t/p/w500\(item.poster_path)")
             cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))
             cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "star.fill"))

@@ -26,16 +26,8 @@ struct Movie: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        do {
-            self.id = try container.decode(Int.self, forKey: .id)
-            self.poster_path = try container.decode(String?.self, forKey: .poster_path) ?? "TempImg"
-            self.name = try container.decode(String.self, forKey: .name)
-        } catch {
-            // 예외 처리 추가
-            print("Decoding error:", error)
-            self.id = 0
-            self.poster_path = "TempImg"
-            self.name = ""
-        }
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.poster_path = try container.decode(String.self, forKey: .poster_path) ?? ""
+        self.name = try container.decode(String.self, forKey: .name)
     }
 }
