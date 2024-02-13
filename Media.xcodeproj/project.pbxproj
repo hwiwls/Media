@@ -34,6 +34,9 @@
 		2EBAFAE12B6F6E63003032B9 /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAFAE02B6F6E63003032B9 /* TMDBAPI.swift */; };
 		2EBAFAE42B6F8755003032B9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAFAE32B6F8755003032B9 /* BaseViewController.swift */; };
 		2EBAFAE62B6F8761003032B9 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAFAE52B6F8761003032B9 /* BaseView.swift */; };
+		2EE0FF7B2B7BD3AD00CA5F42 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0FF7A2B7BD3AD00CA5F42 /* TabBarViewController.swift */; };
+		2EE0FF7E2B7BD43600CA5F42 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0FF7D2B7BD43600CA5F42 /* MyPageViewController.swift */; };
+		2EE0FF802B7BD7BB00CA5F42 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0FF7F2B7BD7BB00CA5F42 /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		2EBAFAE02B6F6E63003032B9 /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 		2EBAFAE32B6F8755003032B9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2EBAFAE52B6F8761003032B9 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		2EE0FF7A2B7BD3AD00CA5F42 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		2EE0FF7D2B7BD43600CA5F42 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		2EE0FF7F2B7BD7BB00CA5F42 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +108,9 @@
 				2E279E022B68DBFD0086F827 /* LaunchScreen.storyboard */,
 				2E279DF72B68DBFB0086F827 /* AppDelegate.swift */,
 				2E279DF92B68DBFB0086F827 /* SceneDelegate.swift */,
+				2EE0FF7C2B7BD3F500CA5F42 /* Mypage */,
 				2E279E0B2B68DCA10086F827 /* Network */,
+				2EE0FF792B7BD39800CA5F42 /* TabBar */,
 				2EBAFAE22B6F8743003032B9 /* Base */,
 				2E9A64A72B6A4B350049A2B2 /* Detail */,
 				2E279E0C2B68DCA70086F827 /* Main */,
@@ -172,6 +180,23 @@
 				2EBAFAE52B6F8761003032B9 /* BaseView.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		2EE0FF792B7BD39800CA5F42 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2EE0FF7A2B7BD3AD00CA5F42 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		2EE0FF7C2B7BD3F500CA5F42 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				2EE0FF7D2B7BD43600CA5F42 /* MyPageViewController.swift */,
+				2EE0FF7F2B7BD7BB00CA5F42 /* EditProfileViewController.swift */,
+			);
+			path = Mypage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,11 +286,13 @@
 				2E279E252B68E1700086F827 /* APIKey.swift in Sources */,
 				2E9A64A62B6A44ED0049A2B2 /* DetailModel.swift in Sources */,
 				2E279E272B68E1E70086F827 /* TVSeriesModel.swift in Sources */,
+				2EE0FF7B2B7BD3AD00CA5F42 /* TabBarViewController.swift in Sources */,
 				2E3E5A752B6BF0E00000E651 /* RecommendModel.swift in Sources */,
 				2EBAFAE42B6F8755003032B9 /* BaseViewController.swift in Sources */,
 				2E279E212B68E1440086F827 /* TMDBAPIManager.swift in Sources */,
 				2E279E2A2B68E5550086F827 /* WhiteTextLabel.swift in Sources */,
 				2EBAFAE12B6F6E63003032B9 /* TMDBAPI.swift in Sources */,
+				2EE0FF802B7BD7BB00CA5F42 /* EditProfileViewController.swift in Sources */,
 				2E279DFC2B68DBFB0086F827 /* ContentOverviewViewController.swift in Sources */,
 				2E279E2D2B68E70B0086F827 /* ContentsCollectionViewCell.swift in Sources */,
 				2E9A64AB2B6A4FC00049A2B2 /* DetailTableViewCell.swift in Sources */,
@@ -273,6 +300,7 @@
 				2E279E2F2B68E72E0086F827 /* PosterImageView.swift in Sources */,
 				2E9A64AD2B6A55910049A2B2 /* CastModel.swift in Sources */,
 				2E9A64A92B6A4B710049A2B2 /* DetailViewController.swift in Sources */,
+				2EE0FF7E2B7BD43600CA5F42 /* MyPageViewController.swift in Sources */,
 				2EBAFAE62B6F8761003032B9 /* BaseView.swift in Sources */,
 				2E7FD3132B70A2960098EDE8 /* TMDBSessionManager.swift in Sources */,
 				2E279E1C2B68DE130086F827 /* ContentOverviewTableViewCell.swift in Sources */,

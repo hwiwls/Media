@@ -14,15 +14,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        
-        let rootViewController = ContentOverviewViewController()
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-    
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-        
-        self.window = window
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.windowScene = windowScene
+            let tabBarController = TabBarViewController()
+            window?.rootViewController = tabBarController
+            window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
